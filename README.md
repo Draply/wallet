@@ -1,15 +1,16 @@
 ## Đây là 1 wallet cá nhân với 1 số chức năng cơ bản đủ để mô tả quá trình hoạt động của solidity
 Trước khi chạy phầm mềm này ta cân clone về 1 thư mục tùy ý
-ta bật command prompt tại cửa sổ của ide, ở đây mình dùng ide là webstorm để minh họa 
+ta bật command prompt tại cửa sổ của ide, ở đây em dùng ide là webstorm để minh họa 
 #### xong đó dùng câu lệnh git clone https://github.com/doducDAD/wallet để có thể download về máy.
 #### cài đặt ganache và metamask.
-Vì solidity là một ngôn ngữ dùng để viết các contract mà các contract lại hoạt động trên các mạng, trên môi trường EVM của ETH, Em có làm một bài reseach nho nhỏ 
+Vì solidity là một ngôn ngữ dùng để viết các contract mà các contract lại hoạt động trên các mạng, trên môi trường EVM của ETH, em có làm một bài reseach nho nhỏ 
 nói chi tiết về phần này của solidity tại : https://github.com/doducDAD/se2022-14.2/tree/main/ReseachW1 ở đây em đã nói chi tiết về EVM của ETH, và một số chức năng chính của solidity.
 Ở đây công cụ để tạo một môi trưởng mạng ảo Local đó chính là Ganache đây là công cụ có thể nói tốt nhất hiện nay cho các blockchain dev. Có 2 công cụ buil phổ biến
 hiện nay là hardhat và truffle thì ở ví dụ này em quyết định chọn truffle, ý tưởng đề tài khá đơn giản để có thể giải thích cơ bản về cách hoạt động của một contract
 
 
-Trước tiên là với Ganache ta khởi động app lên sẽ có giao diện như sau :
+
+## Trước tiên là với Ganache ta khởi động app lên sẽ có giao diện như sau :
 
 ![image](https://user-images.githubusercontent.com/74479681/206176944-d35eadc0-ecde-4c8a-b95f-6854e0f6d491.png)
 
@@ -54,6 +55,76 @@ Với RPC lấy tại phần RPC Sever của ganache ta có thể setup như sau
 lúc này tài khoản đã nhận 100ETH là chúng ta đã kết nối với mạng thành công : 
 
 ![image](https://user-images.githubusercontent.com/74479681/206178877-e27a366f-746a-4696-980d-73cdb3f707e6.png)
+
+## Sơ qua về một số chức năng có trong contract mà chúng ta tạo 
+file solidity nằm tại contracts/Faucet.sol
+Ở đây ta có các funtion tương ứng với các chức năng : 
+- addFunds : Thêm 1 lượng ETH vào ví của bản thân.
+- getFundersIndex : trả về thông tin của ví vừa gửi ETH đến.
+- getAllFunders   : trả về 1 list các ví đã gửi ETH đến ví.
+- withdraw        : rút 1 lượng ETH từ ví của bản thân
+
+Khi contract hoạt động, nó sẽ trả về 1 file Json và việc khai thác thông tin hay làm việc với 1 contract thực tế là chúng ta sẽ làm việc với chính file json này.
+Ở đây vì em có chạy trước phần mềm 1 vài lần do đó đã có file json sẵn ở trong sản phẩm và được lưu tại public/Faucet.json
+
+Nguyên lý hoạt động ở đây là khi ta deployed 1 contract nó sẽ được "Di cư " lên các node mạng blockchain và chạy trên đó, việc này được thực hiện qua file migrations(Tiếng Anh cũng có nghĩa là di cư). Ở đây cần được đặt tên theo định dạng sẵn ví dụ với tên 1_faucet_migration.js , thì 1 là thứ tự chạy, ví dụ dự án của chúng ta có nhiều contract và cùng deploy 1 thì thứ tự chạy của chúng sẽ do ta đặt tên và quyết định. Để có thể kiểm tra việc deploy có thành công hay không, ta có thể 
+sử dụng câu lệnh : truffle migration tại termimnal. Ta có thể nhận được kết quả trả về dạng như sau :
+
+Truffle v5.6.0 (core: 5.6.0)
+Node v16.15.1
+PS U:\NFT-Mar\faucet> truffle migration
+
+Compiling your contracts...
+===========================
+> Compiling .\contracts\Faucet.sol
+> Compiling .\contracts\Faucet.sol
+> Artifacts written to U:\NFT-Mar\faucet\public\contracts
+> Compiled successfully using:
+   - solc: 0.8.9+commit.e5eed63a.Emscripten.clang
+
+
+Starting migrations...
+======================
+> Network name:    'development'
+> Network id:      5777
+> Block gas limit: 6721975 (0x6691b7)
+
+
+1_faucet_migration.js
+=====================
+
+   Replacing 'Faucet'
+   ------------------
+   > transaction hash:    0xab6fc670b480b35c1339d71fb60e1d3f3245f1318ea4f8a8905b088485dc3eff
+   > Blocks: 0            Seconds: 0                                                                                                                                                                                                    
+   > contract address:    0x989a89e10385e956Dd59a8B6Be3e9dbe1153c863
+   > block number:        1
+   > block timestamp:     1670417661
+   > account:             0x68BFC772b95DAD13c23A32Eb91f9C8C96d5dF6Cb
+   > balance:             99.98997682
+   > gas used:            501159 (0x7a5a7)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.01002318 ETH
+
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.01002318 ETH
+
+Summary
+   - solc: 0.8.9+commit.e5eed63a.Emscripten.clang
+
+ở đây ta đang mint ra một địa chỉ ví cá nhân, ta có thể thấy được một cách trực quan qua ganache tại cửa sổ Block, Transaction và Contract tại Ganache.
+
+![image](https://user-images.githubusercontent.com/74479681/206185211-7fa127ca-0fc4-4b6d-bf52-b9e6df1fc86d.png)
+
+Với Created Contract Address là địa chỉ ví được tạo cho ví cá nhân mà phần mềm chúng ta sẽ sử dụng.
+
+Tiếp đó để khởi động phần mềm tại termimnal ta thực hiện lệnh npm start.
+Tại đây ta cần connect metamask với trang web sao cho địa chỉ ví hiện ra giống như địa chỉ ví đã import vào metamask trước đó  :
+
+![image](https://user-images.githubusercontent.com/74479681/206185962-cbfd30de-a905-42d6-91cb-30f22690523e.png)
+
 
 
 
