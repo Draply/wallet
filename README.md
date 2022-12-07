@@ -144,7 +144,7 @@ Kiểm tra contract tại công cụ ganache phần transaction  ta cũng có th
 
 phần to contract Addresss : 0x4d0492DF51198d9fF814881dCa9AB9d87AA482e4  là địa chỉ nhận cũng chính là địa chỉ ví ta vừa tạo. giá trị là 1ETH với số gas là 85075. Được thực hiện bởi hàm addFund của contract.
 
-
+![video](https://www.youtube.com/watch?v=L8vxODotLXQ)
 
 
 
