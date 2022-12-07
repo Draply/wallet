@@ -118,14 +118,31 @@ Summary
 
 ![image](https://user-images.githubusercontent.com/74479681/206185211-7fa127ca-0fc4-4b6d-bf52-b9e6df1fc86d.png)
 
-Với Created Contract Address là địa chỉ ví được tạo cho ví cá nhân mà phần mềm chúng ta sẽ sử dụng.
+Với Created Contract Address là địa chỉ ví được tạo cho ví cá nhân mà phần mềm chúng ta sẽ sử dụng. Ở ví dụ hiện tại trên máy em là  : 
+0x4d0492DF51198d9fF814881dCa9AB9d87AA482e4
+
 
 Tiếp đó để khởi động phần mềm tại termimnal ta thực hiện lệnh npm start.
 Tại đây ta cần connect metamask với trang web sao cho địa chỉ ví hiện ra giống như địa chỉ ví đã import vào metamask trước đó  :
 
-![image](https://user-images.githubusercontent.com/74479681/206185962-cbfd30de-a905-42d6-91cb-30f22690523e.png)
 
+![image](https://user-images.githubusercontent.com/74479681/206186317-6b8afdd5-e7ea-42d7-867f-a3cc8ce0cd13.png)
 
+khi ta thực hiện add 1 ETH 
+
+![image](https://user-images.githubusercontent.com/74479681/206187217-e464ba65-8f40-49da-9139-e99ed604e234.png)
+
+cửa sổ metamask yêu cầu xác nhận với đầy đủ số lượng ETH cần chuyển cũng như chi phí chuyển (ở đây được tính bằng gas, 1ETH = 1000gas và ta có thể tăng gas với 1 số giao dịch nhằm được phân quyền uy tiên trong một số trường hợp như có nhiều người cùng mua 1 token thì ai gas nhiều hơn sẽ được ưu tiên giao dịch trước )
+
+![image](https://user-images.githubusercontent.com/74479681/206187705-ff1bf10e-3b83-4851-8931-2c1c7bb3ade3.png)
+
+Ở đây tài khoản của chúng ta vừa tạo đã nhận được 1 ETH :
+
+Kiểm tra contract tại công cụ ganache phần transaction  ta cũng có thể thấy 
+
+![image](https://user-images.githubusercontent.com/74479681/206188993-b61c8622-01ce-4f2d-8f18-366583cb5e9f.png)
+
+phần to contract Addresss : 0x4d0492DF51198d9fF814881dCa9AB9d87AA482e4  là địa chỉ nhận cũng chính là địa chỉ ví ta vừa tạo. giá trị là 1ETH với số gas là 85075.
 
 
 
