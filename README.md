@@ -5,7 +5,18 @@ ta bật command prompt tại cửa sổ của ide, ở đây em dùng ide là w
 #### cài đặt ganache và metamask.
 Vì solidity là một ngôn ngữ dùng để viết các contract mà các contract lại hoạt động trên các mạng, trên môi trường EVM của ETH, em có làm một bài reseach nho nhỏ 
 nói chi tiết về phần này của solidity tại : https://github.com/doducDAD/se2022-14.2/tree/main/ReseachW1 ở đây em đã nói chi tiết về EVM của ETH, và một số chức năng chính của solidity.
-Ở đây công cụ để tạo một môi trưởng mạng ảo Local đó chính là Ganache đây là công cụ có thể nói tốt nhất hiện nay cho các blockchain dev. Có 2 công cụ buil phổ biến
+## EVM là gì ?
+EVM nói một cách đơn giản là một phần trong mạng Ethereum có nhiệm vụ xử lý việc triển khai và thực thi trên smart contract. Một giao dịch chuyển ETH từ tài khoản EOA này qua tài khoản EOA khác sẽ không cần EVM xử lý. EVM có trên tất cả các client (node) của mạng Ethereum, hướng đến mục tiêu như là một máy tính phi tập trung toàn cầu.
+
+EVM là một máy trạng thái Turing hoàn chỉnh, bởi vì tất cả các bước thực thi được giới hạn trong một lượng hữu hạn các bước tính toán. Đây là điều khác biệt so với Bitcoin khi trên bitcoin thì Stack Machine chỉ là máy Turing không hoàn chỉnh.
+
+EVM được thiết kế theo kiến trúc stack-based, tất cả đều được lưu trong stack, word size là 256-bit. Các thành phần lưu trữ thông tin trên EVM được chia ra thành 3 phần
+
+Một mã ROM cố định, không thể thay đổi. Được load cùng byte code của smart contract khi xử lý contract.
+Một bộ nhớ ngắn hạn. . Khi muốn lưu trên Solidity thì dùng từ khóa memory
+Một bộ nhớ dài hạn. Khi muốn lưu trên Solidity thì dùng từ khóa storage
+
+### Ở đây công cụ để tạo một môi trưởng mạng ảo Local đó chính là Ganache đây là công cụ có thể nói tốt nhất hiện nay cho các blockchain dev. Có 2 công cụ buil phổ biến
 hiện nay là hardhat và truffle thì ở ví dụ này em quyết định chọn truffle, ý tưởng đề tài khá đơn giản để có thể giải thích cơ bản về cách hoạt động của một contract
 
 
