@@ -16,6 +16,9 @@ Một mã ROM cố định, không thể thay đổi. Được load cùng byte c
 Một bộ nhớ ngắn hạn. . Khi muốn lưu trên Solidity thì dùng từ khóa memory
 Một bộ nhớ dài hạn. Khi muốn lưu trên Solidity thì dùng từ khóa storage
 
+![image](https://user-images.githubusercontent.com/74479681/208826525-8ad5f538-b0c5-4e60-b147-6063b4334e90.png)
+
+
 ### Ở đây công cụ để tạo một môi trưởng mạng ảo Local đó chính là Ganache đây là công cụ có thể nói tốt nhất hiện nay cho các blockchain dev. Có 2 công cụ buil phổ biến
 hiện nay là hardhat và truffle thì ở ví dụ này em quyết định chọn truffle, ý tưởng đề tài khá đơn giản để có thể giải thích cơ bản về cách hoạt động của một contract
 
